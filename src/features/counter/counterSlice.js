@@ -23,13 +23,11 @@ export const counterSlice = createSlice({
   reducers: {
     increment: (state, action) => {
       state.value += 1;
-      console.log("first", action.payload);
       const obj1 = stringToNestedObjectRecrssive(
         action.payload,
         10,
         current(state.formPath)
       );
-      console.log(obj1);
       state.formPath = obj1;
     },
     decrement: (state) => {
@@ -67,7 +65,6 @@ export const incrementIfOdd = (amount) => (dispatch, getState) => {
 export default counterSlice.reducer;
 
 export function stringToNestedObjectRecrssive(keyPath, value = "", state) {
-  console.log("firstdddd", state);
   const paths = keyPath.split(".");
 
   const createNestObj = (commingArray, prevState) => {
