@@ -13,7 +13,7 @@ const CustomForm = ({ formObj, formName }) => {
     const { name, type, value } = e.target;
 
     const path = `${formName}.${name}`;
-    dispatch(formValueChange({ path, value }));
+    dispatch(formValueChange({ path: path, value }));
   };
   const handleSubmit = (e) => {
     console.log("submit");
